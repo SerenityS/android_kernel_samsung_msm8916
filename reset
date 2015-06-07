@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -frv build
+make clean && make mrproper
+make msm8916_sec_defconfig VARIANT_DEFCONFIG=msm8916_sec_a5u_eur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+make menuconfig && wait
+cp .config arch/arm/configs/carmilla-lefanu-a500fu_defconfig
+make clean && make mrproper
+echo Done!
