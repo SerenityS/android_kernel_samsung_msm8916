@@ -5,7 +5,7 @@ mkdir -pv build/system/etc/firmware/wlan/prima
 export ARCH=arm
 export CROSS_COMPILE=/home/serenitys/cm11/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin/arm-eabi-
 export STRIP=/home/serenitys/cm11/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin/arm-eabi-strip
-make carmilla-lefanu-a500fu_defconfig
+make msm8916_sec_defconfig VARIANT_DEFCONFIG=msm8916_sec_a5u_eur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
 clear
 make CONFIG_NO_ERROR_ON_MISMATCH=y -j10 && make modules
 ./tools/dtbTool -o build/out/dt_image/boot.img-dtb -s 2048 -p ./scripts/dtc/ ./arch/arm/boot/dts/
